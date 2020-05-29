@@ -40,8 +40,8 @@ final class DirectReadWriteFloatBufferAdapter extends FloatBuffer implements Has
         super((byteBuffer.capacity() >> 2));
         this.byteBuffer = byteBuffer;
         this.byteBuffer.clear();
-        this.floatArray = new Float32Array(byteBuffer.getTypedArray(),
-                                           byteBuffer.getTypedArray().byteOffset,
+        this.floatArray = new Float32Array(byteBuffer.byteArray.buffer,
+                                           byteBuffer.byteArray.byteOffset,
                                            capacity);
     }
 
@@ -101,9 +101,6 @@ final class DirectReadWriteFloatBufferAdapter extends FloatBuffer implements Has
 
     @Override
     public float get() {
-        if (position == limit) {
-            throw new BufferUnderflowException();
-        }
         return floatArray.getAt(position++).floatValue();
     }
 
