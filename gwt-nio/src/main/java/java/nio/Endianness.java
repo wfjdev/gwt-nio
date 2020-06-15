@@ -15,7 +15,7 @@
  *  limitations under the License.
  */
 
-package org.apache.harmony.luni.platform;
+package java.nio;
 
 public enum Endianness {
   BIG_ENDIAN, LITTLE_ENDIAN
