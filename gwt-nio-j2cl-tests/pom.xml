@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.treblereel.gwt.nio</groupId>
     <artifactId>gwt-nio-parent</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.2-SNAPSHOT</version>
   </parent>
   <artifactId>gwt-nio-j2cl-tests</artifactId>
 
@@ -42,12 +42,12 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
 
-    <maven.compiler.plugin>3.7.0</maven.compiler.plugin>
+    <maven.compiler.plugin>3.8.0</maven.compiler.plugin>
     <maven.deploy.plugin>3.0.0-M1</maven.deploy.plugin>
     <maven.findbugs.plugin>3.0.5</maven.findbugs.plugin>
     <maven.install.plugin>3.0.0-M1</maven.install.plugin>
     <maven.jar.plugin>3.1.2</maven.jar.plugin>
-    <maven.j2cl.plugin>0.13-SNAPSHOT</maven.j2cl.plugin>
+    <maven.j2cl.plugin>0.16-SNAPSHOT</maven.j2cl.plugin>
     <maven.licence.plugin>3.0</maven.licence.plugin>
     <maven.surfire.plugin>3.0.0-M1</maven.surfire.plugin>
 
@@ -55,14 +55,14 @@
     <vertispan.j2cl.repo.url>https://repo.vertispan.com/j2cl/</vertispan.j2cl.repo.url>
     <google.snapshot.repo.url>https://oss.sonatype.org/content/repositories/google-snapshots/</google.snapshot.repo.url>
 
-    <j2cl.version>0.7-SNAPSHOT</j2cl.version>
+    <j2cl.version>0.8-SNAPSHOT</j2cl.version>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>org.treblereel.gwt.nio</groupId>
       <artifactId>gwt-nio</artifactId>
-      <version>1.1-SNAPSHOT</version>
+      <version>1.2-SNAPSHOT</version>
     </dependency>
     <!-- test dependencies -->
     <dependency>
@@ -100,7 +100,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
+        <version>${maven.compiler.plugin}</version>
         <configuration>
           <source>${maven.compiler.source}</source>
           <target>${maven.compiler.target}</target>
@@ -111,7 +111,6 @@
         <artifactId>j2cl-maven-plugin</artifactId>
         <version>${maven.j2cl.plugin}</version>
         <configuration>
-          <testJsZip>com.vertispan.j2cl:closure-test:zip:jszip:0.7-20200424.004055-5</testJsZip>
           <compilationLevel>ADVANCED</compilationLevel>
           <!--                <compilationLevel>BUNDLE</compilationLevel>-->
         </configuration>
