@@ -1,112 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+  <groupId>dev.wfj</groupId>
+  <artifactId>gwt-nio</artifactId>
+  <version>0.1</version>
 
-  <groupId>org.treblereel.gwt.nio</groupId>
-  <artifactId>gwt-nio-parent</artifactId>
-  <version>1.2-SNAPSHOT</version>
-  <packaging>pom</packaging>
-
-  <name>GWT NIO Parent</name>
-  <description>Parent POM containing the gwt-nio module and the test modules (gwt2- and j2cl-tests)</description>
-  <url>https://github.com/gwtproject/gwt-nio</url>
-
-  <organization>
-    <name>The GWT Authors</name>
-    <url>https://github.com/gwtproject</url>
-  </organization>
-
-  <licenses>
-    <license>
-      <name>The Apache Software License, Version 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-    </license>
-  </licenses>
-
-  <developers>
-    <developer>
-      <name>The GWT Authors</name>
-      <organization>The GWT Project Authors</organization>
-      <url>https://github.com/gwtproject</url>
-    </developer>
-  </developers>
-
-  <scm>
-    <connection>scm:git:git://github.com/gwtproject/gwt-nio.git</connection>
-    <developerConnection>scm:git:ssh://github.com/gwtproject/gwt-nio.git</developerConnection>
-    <url>https://github.com/gwtproject/gwt-nio/tree/master</url>
-  </scm>
-
-  <inceptionYear>2020</inceptionYear>
-
-  <modules>
-    <module>gwt-nio</module>
-    <module>gwt-nio-gwt2-tests</module>
-    <module>gwt-nio-j2cl-tests</module>
-  </modules>
+  <packaging>gwt-lib</packaging>
+  <name>Gwt Nio</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-    <maven.deploy.plugin>3.0.0-M1</maven.deploy.plugin>
-    <maven.fmt.plugin>2.5.1</maven.fmt.plugin>
-    <maven.licence.plugin>3.0</maven.licence.plugin>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.source.version>3.0.1</maven.source.version>
+    <maven.compiler.plugin>3.8.0</maven.compiler.plugin>
   </properties>
+  <dependencies>
+    <dependency>
+      <groupId>com.google.elemental2</groupId>
+      <artifactId>elemental2-dom</artifactId>
+      <version>1.1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.treblereel.gwt.nio</groupId>
+      <artifactId>gwt-nio</artifactId>
+      <version>1.1</version>
+    </dependency>
 
+  </dependencies>
   <build>
     <plugins>
       <plugin>
-        <groupId>com.coveo</groupId>
-        <artifactId>fmt-maven-plugin</artifactId>
-        <version>${maven.fmt.plugin}</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>check</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-deploy-plugin</artifactId>
-        <version>${maven.deploy.plugin}</version>
+        <groupId>net.ltgt.gwt.maven</groupId>
+        <artifactId>gwt-maven-plugin</artifactId>
+        <version>1.0.1</version>
+        <extensions>true</extensions>
         <configuration>
-          <skip>true</skip>
+          <moduleName>dev.wfj.gwtbio.GwtNio</moduleName>
+          <skipModule>true</skipModule>
         </configuration>
       </plugin>
     </plugins>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>com.mycila</groupId>
-          <artifactId>license-maven-plugin</artifactId>
-          <version>${maven.licence.plugin}</version>
-          <configuration>
-            <header>LICENSE.header</header>
-            <encoding>${project.build.sourceEncoding}</encoding>
-            <skipExistingHeaders>true</skipExistingHeaders>
-            <mapping>
-              <java>SLASHSTAR_STYLE</java>
-            </mapping>
-            <includes>
-              <include>sec/test/java</include>
-            </includes>
-            <properties>
-              <year>${project.inceptionYear}</year>
-              <name>${project.organization.name}</name>
-            </properties>
-          </configuration>
-          <executions>
-            <execution>
-              <goals>
-                <goal>check</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-      </plugins>
-    </pluginManagement>
   </build>
 </project>
